@@ -1,16 +1,10 @@
-import { Cards } from './component/card/card'
-
-var catFacts = [ ];
-
-function getFact(){
-  console.log("here");
-}
+import React from 'react';
+import CatFacts from './components/catfacts';
 
 export default function Home() {
   return (
     <div>
-      <Cards cards={catFacts}></Cards>
-      <button onClick={getFact()} type="button">Click</button>
+      <CatFacts></CatFacts>
     </div>
   )
 }
