@@ -1,0 +1,25 @@
+.factCard {
+  border-radius: 1em;
+  border-color: white;
+  border: 2px solid;
+  text-align: left;
+
+  padding: 1em;
+  display: flex;
+}
+
+.factCard img {
+  max-height: 300px;
+  border-radius: 1em;
+  margin-right: 1em;
+}
+
+.factCard .content {
+  justify-content: center;
+}
+
+.factCard .content .title {
+}
+
+.factCard .content .text {
+}
