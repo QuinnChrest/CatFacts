@@ -1,25 +1,41 @@
 .factCard {
-  border-radius: 1em;
+  border-radius: 1.5em;
   border-color: white;
-  border: 2px solid;
+  border: 4px solid;
   text-align: left;
-
-  padding: 1em;
+  padding: 1.5em;
   display: flex;
+  position: absolute;
+  transform-origin: center;
+  width: 50%;
+  min-width: 1000px;
+  max-height: 300px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 .factCard img {
   max-height: 300px;
-  border-radius: 1em;
+  border-radius: 1.5em;
   margin-right: 1em;
 }
 
 .factCard .content {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  max-height: 300px;
+  color: black;
 }
 
 .factCard .content .title {
+  margin: 0;
+  text-transform: capitalize;
 }
 
 .factCard .content .text {
+  overflow-y: auto;
 }

@@ -3,17 +3,24 @@ import "./../styles/factcard.css";
 interface Props {
   title: string;
   text: string;
+  color: string;
+  rotation: string;
 }
 
-const FactCard = ({ title, text }: Props) => {
+const FactCard = ({ title, text, color, rotation }: Props) => {
   return (
-    <div className="factCard">
-      <img src="https://img.etimg.com/thumb/width-640,height-480,imgsize-16886,resizemode-75,msid-102703009/news/international/us/starting-naruto-check-where-to-begin-how-to-watch-heres-your-complete-guide-to-iconic-ninja-series.jpg" />
-      <div className="content">
-        <h1>{title}</h1>
-        <p>{text}</p>
+    <>
+      <div
+        className="factCard"
+        style={{ backgroundColor: color, transform: rotation }}
+      >
+        <img src="https://img.etimg.com/thumb/width-640,height-480,imgsize-16886,resizemode-75,msid-102703009/news/international/us/starting-naruto-check-where-to-begin-how-to-watch-heres-your-complete-guide-to-iconic-ninja-series.jpg" />
+        <div className="content">
+          <h1 className="title">{title}</h1>
+          <p className="text">{text}</p>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
