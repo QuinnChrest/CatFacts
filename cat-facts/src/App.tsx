@@ -1,18 +1,23 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaw } from "@fortawesome/free-solid-svg-icons";
-import FactCard from "./components/FactCard";
 import "./App.css";
 
 function App() {
-  const [factCard, setFactCard] = useState<any>();
+  const [imageSRC, setImage] = useState<string>();
 
   function updateCard() {
-    setFactCard({
-      title: "test",
-      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      color: getRandomPastelColor(),
-    });
+    fetch("https://meowfacts.herokuapp.com/")
+      .then((response) => response.json())
+      .then((json) =>
+        fetch(
+          "https://cataas.com/cat/says/" +
+            encodeURI(json.data[0]) +
+            "?fontSize=50&fontColor=white"
+        )
+          .then((response) => response.blob())
+          .then((blob) => setImage(URL.createObjectURL(blob)))
+      );
   }
 
   function getRandomPastelColor() {
@@ -30,13 +35,7 @@ function App() {
   return (
     <>
       <div className="wrapper">
-        {factCard != null && (
-          <FactCard
-            title={factCard.title}
-            text={factCard.text}
-            color={factCard.color}
-          />
-        )}
+        <img src={imageSRC} />
         <button
           type="button"
           className="btn btn-lg btn-outline-light"
